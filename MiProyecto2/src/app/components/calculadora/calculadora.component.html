@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>Calculadora de Calorías</h1>
+        <p>Seleccione sus productos</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Calculadora sus Alimentos</h3>
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <div class="content">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Buscar Alimento" [(ngModel)]="searchTerm">
+                            </div>
+                        </div>
+                        <form>
+                            <br>
+                            <label for="">Seleccione un alimento:</label>
+                            <div class="col-md-12">
+                                <div class="card mt-8">
+                                    <div class="card-body">
+                                        <h6 class="text-center">
+                                            Lista de Alimentos
+                                        </h6>
+                                        <table class="table table-sm table-hover">
+                                            <thead>
+                                                <th>Nombre</th>
+                                                <th>Categoria</th>
+                                                <th>Calorias</th>
+                                                <th>Proteinas</th>
+                                                <th>Hidratos</th>
+                                                <th>Grasas</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let product of productList | tableFilter : searchTerm">
+                                                    <td>{{product.name}}</td>
+                                                    <td>{{product.category}}</td>
+                                                    <td>{{product.calorias}}</td>
+                                                    <td>{{product.proteinas}}</td>
+                                                    <td>{{product.hidratos}}</td>
+                                                    <td>{{product.grasas}}</td>
+                                                    <td>
+                                                        <button (click)="selectFood(product)">
+                                  <i class="fa fa-plus" style="margin-left:15px" aria-hidden="true"></i>
+                                </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <label for="email">Alimentos Agregados:</label>
+                <div class="card-body, row ">
+                    <table class="table table-hover">
+                        <tbody>
+                            <div>
+                                <tr *ngFor="let foods of newFood">
+                                    <td>{{foods.name}}</td>
+                                    <td ng-init="let totalCalories += foods.calorias">{{foods.calorias}}</td>
+                                    <td ng-init="let totalPrteinas += foods.calorias">{{foods.proteinas}}</td>
+                                    <td ng-init="let totalHidratos += foods.calorias">{{foods.hidratos}}</td>
+                                    <td ng-init="let totalGrasas += foods.calorias">{{foods.grasas}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>{{totalCalories}}</td>
+                                    <td>{{totalPrteinas}}</td>
+                                    <td>{{totalHidratos}}</td>
+                                    <td>{{totalGrasas}}</td>
+                                </tr>
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <input type="number" name="gramos" id="gramos">
+                    <button (click)="calcular()">calcular</button>
+                    <p>{{resultadoProteinas}}</p>
+                    <p>{{resultadoCalorias}}</p>
+                    <p>{{resultadoCarboHidratos}}</p>
+                    <p>{{resultadoGrasas}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

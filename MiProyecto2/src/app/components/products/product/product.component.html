@@ -1,0 +1,89 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+      <div class="form-group">
+        <input 
+        type="text"
+        class="form-control"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="productService.selectedProduct.name"
+        placeholder="Nombre del Alimento"
+        >
+
+      </div>
+
+      <div class="form-group">
+          <input 
+          type="text"
+          class="form-control"
+          name="category"
+          #category="ngModel"
+          [(ngModel)]="productService.selectedProduct.category"
+          placeholder="Categoría del Alimento"
+          >
+      </div>
+
+      <div class="form-group">
+          <input 
+          type="number"
+          class="form-control"
+          name="calorias"
+          #calorias="ngModel"
+          [(ngModel)]="productService.selectedProduct.calorias"
+          placeholder="Valor categorias"
+          >
+      </div>
+
+      <div class="form-group">
+        <input 
+        type="number"
+        class="form-control"
+        name="proteinas"
+        #proteinas="ngModel"
+        [(ngModel)]="productService.selectedProduct.proteinas"
+        placeholder="Valor proteinas"
+        >
+    </div>
+    <div class="form-group">
+      <input 
+      type="number"
+      class="form-control"
+      name="hidratos"
+      #hidratos="ngModel"
+      [(ngModel)]="productService.selectedProduct.hidratos"
+      placeholder="Valor hidratos"
+      >
+  </div>
+  <div class="form-group">
+    <input 
+    type="number"
+    class="form-control"
+    name="grasas"
+    #grasas="ngModel"
+    [(ngModel)]="productService.selectedProduct.grasas"
+    placeholder="Valor grasas"
+    >
+</div>
+      <div class="form-group">
+        <input 
+        type="file" 
+        class="form-control" 
+        name="file"
+        #file="ngModel"
+        (change)=featuredPhotoSelected($event)
+        [(ngModel)]="productService.selectedProduct.file">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-plus-circle"></i> Agregar Alimento
+        </button> 
+        <button class="btn btn-secondary" type="reset" (click)="resetForm(productForm)">
+          <i class="fas fa-sync-alt"></i> Limpiar Campos
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

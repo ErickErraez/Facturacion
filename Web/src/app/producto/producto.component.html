@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            &nbsp;
+        </div>
+        <div class="col-8">
+            <form [formGroup]="productForm" class="login-container" (ngSubmit)="onSubmit(productForm.value)">
+                <p-panel class="ng-tns-c4-15 ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all ng-star-inserted " header="Create Account">
+                    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                Nombre Producto:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget" formControlName="nombre" [(ngModel)]="producto.nombre" placeholder="Required" />
+                            </div>
+                            <div>
+                                <p-message severity="error" text="Firstname is required" *ngIf="!productForm.controls['nombre'].valid&&productForm.controls['nombre'].dirty">
+                                </p-message>
+                                <p-message severity="success" class="containers1" *ngIf="productForm.controls['nombre'].valid && productForm.controls['nombre'].dirty">
+                                </p-message>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                Codigo Producto:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget" formControlName="codigo" [(ngModel)]="producto.codigo" placeholder="Required" />
+                            </div>
+                            <div>
+                                <p-message severity="error" text="Codigo is required" *ngIf="!productForm.controls['codigo'].valid&&productForm.controls['codigo'].dirty">
+                                </p-message>
+                                <p-message severity="success" *ngIf="productForm.controls['codigo'].valid&&productForm.controls['codigo'].dirty">
+                                </p-message>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                Descripcion:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget" formControlName="descripcion" [(ngModel)]="producto.descripcion" placeholder="Required" />
+                            </div>
+                            <div>
+                                <p-message severity="error" text="Descripcion is required" *ngIf="!productForm.controls['descripcion'].valid&&productForm.controls['descripcion'].dirty">
+                                </p-message>
+                                <p-message severity="success" *ngIf="productForm.controls['descripcion'].valid&&productForm.controls['descripcion'].dirty">
+                                </p-message>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                Cantidad:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="number" class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget" formControlName="cantidad" [(ngModel)]="producto.cantidad" placeholder="Required" />
+                            </div>
+                            <div>
+                                <p-message severity="error" text="Cantidad is required" *ngIf="!productForm.controls['cantidad'].valid&&productForm.controls['cantidad'].dirty">
+                                </p-message>
+                                <p-message severity="success" *ngIf="productForm.controls['cantidad'].valid&&productForm.controls['cantidad'].dirty">
+                                </p-message>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                Precio:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="number" class="ng-untouched ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget" formControlName="precio" [(ngModel)]="producto.precio" placeholder="Required" />
+                            </div>
+                            <div>
+                                <p-message severity="error" text="Precio is required" *ngIf="!productForm.controls['precio'].valid&&productForm.controls['precio'].dirty">
+                                </p-message>
+                                <p-message severity="success" *ngIf="productForm.controls['precio'].valid&&productForm.controls['precio'].dirty">
+                                </p-message>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2"></div>
+                            <div class="ui-grid-col-6">
+                                <button pButton type="submit" label="Register" (click)="onRegister()" [disabled]="!userform.valid"></button>
+                            </div>
+                            <div class="ui-grid-col-4"></div>
+                        </div>
+                        <div style="text-align:center;margin-top:20px" *ngIf="submitted">
+                            Form Submitted
+                            <br>
+
+                        </div>
+                    </div>
+                </p-panel>
+            </form>
+        </div>
+    </div>
+</div>

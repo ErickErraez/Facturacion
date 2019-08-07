@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+ <div class="card mt-5">
+    <div class="card-body">
+      <h6 class="text-center">
+        Lista de Alimentos
+      </h6>
+      <table class="table table-sm table-hover">
+        <thead>
+          <th>Nombre</th>
+          <th>Categoria</th>
+          <th>Calorias c 100gr</th>
+          <th>Proteinas c 100gr</th>
+          <th>Hidratos c 100gr</th>
+          <th>Grasas c 100gr</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productList">
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.calorias}}</td>
+            <td>{{product.proteinas}}</td>
+            <td>{{product.hidratos}}</td>
+            <td>{{product.grasas}}</td>
+            <td >
+              <a class="nav-link" href="#" routerLink="/products" class="btn btn-secondary text-white" (click)="onEdit(product)">
+                  <i class="far fa-edit"></i>
+              </a>
+              <a class="btn btn-danger text-white" (click)="onDelete(product.$key)">
+                  <i class="fas fa-trash-alt"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ </div>
+</div>
